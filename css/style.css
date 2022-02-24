@@ -1,0 +1,38 @@
+.timer_wrapper {
+    width: 50%;
+    margin: 0 auto
+}
+
+.timer_wrapper .title {
+    text-align: center;
+}
+
+.timer_wrapper .timer {
+    margin-top: 60px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.timer_wrapper .timer__block {
+    width: 102px;
+    height: 120px;
+    background:#fff;
+    box-shadow:0 4px 20px rgba(0,0,0,.25);
+    font-size:16px;
+    font-weight:300;
+    text-align:center
+}
+
+.timer_wrapper .timer__block span {
+    display:block;
+    margin-top:20px;
+    margin-bottom:5px;
+    font-size:56px;
+    font-weight:700
+}
+
+.title{
+    font-size:36px;
+    font-weight:400
+}
