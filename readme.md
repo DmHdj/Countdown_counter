@@ -3,7 +3,7 @@
 
 ## This counter can be installed on the site. It will work and count down the time until the appointed date - deadline
 
-[counter_screen](img/screen.PNG)
+![counter_screen](img/screen.PNG)
 
 The html structure of the counter is in the file **[index.html](https://github.com/DmHdj/Countdown_counter/blob/main/index.html)**
 
