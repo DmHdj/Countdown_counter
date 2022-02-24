@@ -18,13 +18,13 @@ The script is located in the js folder in the **[script.js](https://github.com/D
 ## **[script.js](https://github.com/DmHdj/Countdown_counter/blob/main/js/script.js)**
 
 The end date is placed in the ***deadline*** constant
-```
+`
 const deadline = '2022-12-31'; 
-```
+`
 If necessary, the date can be assigned from the input, admin panel or other source.
 
 The getTimeRemaining function considers the difference between the current time and the deadline.
-```
+`
 function getTimeRemaining (endtime) {
         const t = Date.parse(endtime) - Date.parse(new Date()),
               days = Math.floor(t / (1000 * 60 * 60 * 24)),
@@ -40,7 +40,7 @@ function getTimeRemaining (endtime) {
             'seconds': seconds
         };
     }
-```
+`
 
 It takes one argument - the end time and returns an object with days, hours, minutes until the end. <br/>
 The 'total' property is needed in order to understand how much is left to the end, so that there are no negative values.
@@ -49,29 +49,41 @@ The 'total' property is needed in order to understand how much is left to the en
 
 The setСlock function sets a timer on the page. It takes two arguments - a selector and an end time.
 
-The ``updateClock`` function updates the timer every second. At the same time, it has three main actions:
+The `updateClock` function updates the timer every second. At the same time, it has three main actions:
 1. calculation of the time left for this second, for this you need the `getTimeRemaining` function, which will return an object.<br/>
-```
+`
     const t = getTimeRemaining(endtime);
-```
+`
 2. The calculated values ​​are placed on the page.
 <br/>
-```
+`
     days.innerHTML = getZero(t.days);
     hours.innerHTML = getZero(t.hours);
     minutes.innerHTML = getZero(t.minutes);
     seconds.innerHTML = getZero(t.seconds);
-```
+`
 3. Runs `updateClock` every second.
-```
+`
 timeInterval = setInterval(updateClock, 1000);
-```
+`
 The condition allows you to exclude negative values
-```
+`
 if (t.total <= 0) {
     clearInterval(timeInterval);
 }
-```
+`
+
+The `getZero` function is a helper to check if this value is lower than 10 or not. If below
+it will substitute zero at the beginning of the number. If the number is greater than 10, then it simply returns it.
+`
+function getZero (num) {
+        if (num >= 0 && num < 10) {
+            return `0${num}`;
+        } else {
+            return num;
+        }
+    }
+`
 ---
 ###### РУС
 
@@ -92,13 +104,13 @@ HTML-структура счетчика находится в файле **[ind
 ## **[script.js](https://github.com/DmHdj/Countdown_counter/blob/main/js/script.js)**
 
 Дата окончания помещается в константу***deadline*** 
-```
+`
 const deadline = '2022-12-31'; 
-```
+`
 При необходимости дату можно назначить из input, админки или другого источника.
 
 Функция `getTimeRemaining` учитывает разницу между текущим временем и крайним сроком.
-```
+`
 function getTimeRemaining (endtime) {
         const t = Date.parse(endtime) - Date.parse(new Date()),
               days = Math.floor(t / (1000 * 60 * 60 * 24)),
@@ -114,7 +126,7 @@ function getTimeRemaining (endtime) {
             'seconds': seconds
         };
     }
-```
+`
 
 Он принимает один аргумент - время окончания и возвращает объект с днями, часами, минутами до конца. <br/>
 Свойство **total** нужно для того, чтобы понять, сколько осталось до конца, чтобы не осталось отрицательных значений.
@@ -125,27 +137,39 @@ function getTimeRemaining (endtime) {
 
 Функция updateClock обновляет таймер каждую секунду. При этом она имеет три основных действия:
 1. подсчет времени оставшегося на эту секунду, для этого нужна функция getTimeRemaining, которая будет возвращать объект.<br/>
-```
+`
     const t = getTimeRemaining(endtime);
-```
+`
 2. Рассчитанные значения размещаются на странице.
 <br/>
-```
+`
     days.innerHTML = getZero(t.days);
     hours.innerHTML = getZero(t.hours);
     minutes.innerHTML = getZero(t.minutes);
     seconds.innerHTML = getZero(t.seconds);
-```
+`
 3. Запускает `updateClock` каждую секунду.
-```
+`
 timeInterval = setInterval(updateClock, 1000);
-```
+`
 Условие позволяет исключить отрицательные значения
-```
+`
 if (t.total <= 0) {
     clearInterval(timeInterval);
 }
-```
+`
+
+Функция getZero  - помощник, проверяет, ниже это значение, чем 10 или нет. Если ниже, 
+то будет подставлять ноль в начало числа.  Если число больше 10, то просто его возвращает.
+`
+function getZero (num) {
+        if (num >= 0 && num < 10) {
+            return `0${num}`;
+        } else {
+            return num;
+        }
+    }
+`
 
 
 
